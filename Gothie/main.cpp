@@ -3,8 +3,9 @@
 
 int main()
 {
-    Droid bot;  // Instantiate the robot's id.
+    Droid bot;  // Instantiate the robot's id
     Vitals ht;  // Instantiate the robot's vitals.
+
     ht.GetIntro();
     ht.GetCare();
 
