@@ -113,7 +113,6 @@ Pet::Pet(void)  // Random stats using Mersenne Twist.
             std::cout << "Please enter your name: \n";
             string nida{};
             std::getline(std::cin, nida);
-            if (!nida.empty())
             ida = nida;
             std::cout << "Are you okay with " << ida << "?\nPress \"Y\" for yes or \"N\" for no.";
             string nanswer{};
@@ -323,9 +322,9 @@ void Pet::Pet::GetCare()
             std::cout << "\n";
             std::cout << "#----------------MENU-----------------#\n";
             std::cout << " |\"F\" for [feed]   \"D\" for [drink] |\n";
-            std::cout << " |\"C\" for [clean]  \"B\" for [bath]  |\n";
+            std::cout << " | \"B\" for [bath]                    |\n";
             std::cout << " |\"Z\" for [sleep]   \"X\" for [heal] |\n";
-            std::cout << " |\"H\" for [status] \"Q\" to  [quit]  |\n";
+            std::cout << " |\"Q\" to  [quit]                     |\n";
             std::cout << "#-------------------------------------#\n";
             std::getline(std::cin, prompt);
 
