@@ -57,7 +57,6 @@ class Pet
         void GetStatus();
         void GetFeed();
         void GetDrink();
-        void GetClean();
         void GetBath();
         void GetSleep();
         void GetHeal();
@@ -98,12 +97,6 @@ Pet::Pet(void)  // Random stats using Mersenne Twist.
     std::cout << "Please enter your name: \n";
     string ida{};
     std::getline(std::cin, ida);
-    if (!ida.empty())
-    {
-        ida[0] = std::toupper(ida[0]);
-        for (std::size_t i = 1; i < ida.length(); ++i)
-            ida[i] = std::tolower(ida[i]);
-    }  // Capitalise name.
     std::cout << "Are you okay with " << ida << "?\nPress \"Y\" for yes or \"N\" for no.";
     string answer{};
     std::getline(std::cin, answer);
@@ -121,11 +114,6 @@ Pet::Pet(void)  // Random stats using Mersenne Twist.
             string nida{};
             std::getline(std::cin, nida);
             if (!nida.empty())
-            {
-                nida[0] = std::toupper(nida[0]);
-                for (std::size_t i = 1; i < nida.length(); ++i)
-                    nida[i] = std::tolower(nida[i]);
-            }
             ida = nida;
             std::cout << "Are you okay with " << ida << "?\nPress \"Y\" for yes or \"N\" for no.";
             string nanswer{};
@@ -140,12 +128,6 @@ Pet::Pet(void)  // Random stats using Mersenne Twist.
     std::cout << "Please enter your pet's name: \n";
     string idn{};
     std::getline(std::cin, idn);
-    if (!idn.empty())
-    {
-        idn[0] = std::toupper(idn[0]);
-        for (std::size_t i = 1; i < idn.length(); ++i)
-            idn[i] = std::tolower(idn[i]);
-    }  // Capitalise name.
     std::cout << "Are you okay with " << idn << "?\nPress \"Y\" for yes or \"N\" for no.";
     string answer1{};
     std::getline(std::cin, answer1);
@@ -162,12 +144,6 @@ Pet::Pet(void)  // Random stats using Mersenne Twist.
             std::cout << "Please enter your pet's name: \n";
             string nidn{};
             std::getline(std::cin, nidn);
-            if (!nidn.empty())
-            {
-                nidn[0] = std::toupper(nidn[0]);
-                for (std::size_t i = 1; i < nidn.length(); ++i)
-                    nidn[i] = std::tolower(nidn[i]);
-            }
             idn = nidn;
             std::cout << "Are you okay with " << idn << "?\nPress \"Y\" for yes or \"N\" for no.";
             string nanswer1{};
@@ -363,11 +339,6 @@ void Pet::Pet::GetCare()
                 GetDrink();
             }
 
-            else if (prompt == "C" || prompt == "c")
-            {
-                GetClean();
-            }
-
             else if (prompt == "B" || prompt == "b")
             {
                 GetBath();
@@ -383,13 +354,7 @@ void Pet::Pet::GetCare()
                 GetHeal();
             }
 
-            else if (prompt == "H" || prompt == "h")
-            {
-                GetStatus();
-            }
-
-
-        } while ((prompt != "Q" || prompt != "q") && (prompt == "F" || prompt == "f" || prompt == "D" || prompt == "d" || prompt == "C" || prompt == "c" || prompt == "B" || prompt == "b" || prompt == "Z" || prompt == "z" || prompt == "P" || prompt == "p" || prompt == "X" || prompt == "x" || prompt == "H" || prompt == "h"));
+        } while ((prompt != "Q" || prompt != "q") && (prompt == "F" || prompt == "f" || prompt == "D" || prompt == "d" || prompt == "B" || prompt == "b" || prompt == "Z" || prompt == "z" || prompt == "P" || prompt == "p" || prompt == "X" || prompt == "x"));
 
         if (prompt == "Q" || prompt == "q")
         {
@@ -423,143 +388,6 @@ void Pet::Pet::GetStats()
     std::cout << "#  Happiness: " << happiness << "  #\n";
     std::cout << "#  Health: " << health << "     #\n";
     std::cout << "###################\n";
-}
-
-void Pet::Pet::GetStatus()
-{
-    std::cout << "Satiety:\n";
-    if (hunger == 100)
-    {
-        std::cout << "I am not hungry.\n";
-    }
-    else if (hunger >= 80 && hunger < 100)
-    {
-        std::cout << "I am a little peckish.\n";
-    }
-    else if (hunger >= 50 && hunger < 80)
-    {
-        std::cout << "I am hungry.\n";
-    }
-    else if (hunger >= 25 && hunger < 50)
-    {
-        std::cout << "I am very hungry.\n";
-    }
-    else
-    {
-        std::cout << "I am starving.\n";
-    }
-
-    std::cout << "Quench:\n";
-    if (thirst == 100)
-    {
-        std::cout << "I am not thirsty.\n";
-    }
-    else if (thirst >= 80 && thirst < 100)
-    {
-        std::cout << "I am a little parched.\n";
-    }
-    else if (thirst >= 50 && thirst < 80)
-    {
-        std::cout << "I am thirsty.\n";
-    }
-    else if (thirst >= 25 && thirst < 50)
-    {
-        std::cout << "I am very thirsty.\n";
-    }
-    else
-    {
-        std::cout << "I am drained.\n";
-    }
-
-    std::cout <<"Hygiene:\n";
-    if (smell == 100)
-    {
-        std::cout << "I am squeaky clean.\n";
-    }
-    else if (smell >= 80 && smell < 100)
-    {
-        std::cout << "I am a little dirty.\n";
-    }
-    else if (smell >= 50 && smell < 80)
-    {
-        std::cout << "I am dirty.\n";
-    }
-    else if (smell >= 25 && smell < 50)
-    {
-        std::cout << "I am very dirty.\n";
-    }
-    else
-    {
-        std::cout << "I am stinking.\n";
-    }
-
-    std::cout << "Energy:\n";
-    if (energy == 100)
-    {
-        std::cout << "I am energetic.\n";
-    }
-    else if (energy >= 80 && energy < 100)
-    {
-        std::cout << "I am awake.\n";
-    }
-    else if (energy >= 50 && energy < 80)
-    {
-        std::cout << "I am somewhat drowsy.\n";
-    }
-    else if (energy >= 25 && energy < 50)
-    {
-        std::cout << "I am very drowsy.\n";
-    }
-    else
-    {
-        std::cout << "I am sleepy.\n";
-    }
-
-    std::cout << "Happiness:\n";
-    if (happiness >= 80 && happiness <= 100)
-    {
-        std::cout << "I am ecstatic.\n";
-    }
-    else if (happiness >= 30 && happiness < 80)
-    {
-        std::cout << "I am in high spirits.\n";
-    }
-    else if (happiness >= 25 && happiness < 30)
-    {
-        std::cout << "I am kind of down.\n";
-    }
-    else
-    {
-        std::cout << "I am mad and depressed.\n";
-    }
-
-    std::cout << "Health:\n";
-    if (health >= 80 && health <= 100)
-    {
-        std::cout << "I am healthy.\n";
-    }
-    else if (health >= 50 && health < 80)
-    {
-        std::cout << "I am under the weather.\n";
-    }
-    else if (health >= 25 && health < 50)
-    {
-        std::cout << "I am kind of sick.\n";
-    }
-    else if (health >= 5 && health < 25)
-    {std::cout << "I am sick.\n";}
-    else if (health >= 1 && health < 5)
-    {
-        std::cout << "I am dying.\n";
-    }
-    else
-    {
-        if (health <= 0)
-        {
-            health = 0;
-        }
-        std::cout << "Good-bye...\n";
-    }
 }
 
 // Playing Setters and Getters again.
@@ -618,25 +446,6 @@ void Pet::Pet::GetDrink()
 inline int Pet::Pet::GetSmell(void)
 {
     return smell;
-}
-void Pet::Pet::GetClean()
-{
-    std::cout << "You clean up your pet.\n";
-    smell += 45;
-    poop -= 15;
-    if (smell > 100 && poop < 0)
-    {
-        smell = 100;
-        poop = 0;
-    }
-    else if (poop < 0)
-    {
-        poop = 0;
-    }
-    else if (smell > 100)
-    {
-        smell = 100;
-    }
 }
 void Pet::Pet::GetBath()
 {
